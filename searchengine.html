@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arrayss = ['apple', 'mango', 'orange', 'grapes', 'kiwi'];
+
+        function search(arr, query) {
+            let store = [];
+            for (let i of arr) {
+                if (i.toLowerCase().includes(query.toLowerCase())) {
+                    store.push(i);
+                }
+                else {
+                    console.log("Result not found")
+                }
+            }
+            return store;
+        }
+        let Astore = search(arrayss, 'o');
+        console.log(Astore);
+    </script>
+</body>
+
+</html>

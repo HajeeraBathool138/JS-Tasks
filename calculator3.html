@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=600);
+            width: 98%;
+            height: 90vh;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: black;
+            box-shadow: 5px -5px 15px #9f9a9a;
+            border: 2px solid #3b3131;
+        }
+
+        input[type="text"] {
+            width: 320px;
+            height: 35px;
+            border: none;
+            background: transparent;
+            border: 2px solid #fff6f6;
+            font-size: 25px;
+            padding: 15px;
+            color: #fff;
+            text-align: right;
+        }
+
+        button.button {
+            width: 70px;
+            height: 53px;
+            margin: 8px;
+            border-radius: 50%;
+            box-shadow: -5px -5px 8px #636363;
+            font-size: 20px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+
+        input[type="text"]::placeholder {
+            color: #fff;
+        }
+
+        .operation {
+            color: #43f9f9 !important;
+        }
+
+        .operations {
+            background: #fff !important;
+            color: black !important;
+        }
+
+        .operation {
+            color: #fff !important;
+            background: orange !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input id="input" type="text" placeholder="0" readonly />
+        <div class="contain">
+            <button class="button operations">AC</button>
+            <button class="button operations">DEL</button>
+            <button class="button operation">%</button>
+            <button class="button operation">/</button>
+        </div>
+        <div class="contain">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button operation">*</button>
+        </div>
+        <div class="contain">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button operation">-</button>
+        </div>
+        <div class="contain">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button operation">+</button>
+        </div>
+        <div class="contain">
+            <button class="button operations">00</button>
+            <button class="button operations">0</button>
+            <button class="button operation">.</button>
+            <button class="button operation">=</button>
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById('input')
+        let buttons = document.querySelectorAll('button')
+        let string = '';
+        let arr = Array.from(buttons)
+        arr.forEach(button => {
+            button.addEventListener('click', (e) => {
+                if (e.target.innerHTML == '=') {
+                    string = eval(string)
+                    input.value = string
+                } else if (e.target.innerHTML == 'AC') {
+                    string = '';
+                    input.value = string;
+                } else if (e.target.innerHTML == 'DEL') {
+                    string = string.substring(0, string.length - 1)
+                    input.value = string;
+                } else {
+                    string += e.target.innerHTML;
+                    input.value = string;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

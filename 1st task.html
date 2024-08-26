@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Rows</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: burlywood;
+            color: chocolate;
+            margin-top: 8rem;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .num-box,
+        .result-box {
+            width: 50px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+
+        #total-sum-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #total-sum-box {
+            width: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiplication Rows Task</h1>
+    <div id="container"></div>
+    <div id="total-sum-container">
+        <span>Total Sum: </span>
+        <input type="text" id="total-sum-box" readonly>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            addRow(); // Add the initial row when the page loads
+        });
+
+        function createRow() {
+            const row = document.createElement('div');
+            row.classList.add('row');
+
+            for (let i = 0; i < 5; i++) {
+                const inputBox = document.createElement('input');
+                inputBox.type = 'number';
+                inputBox.classList.add('num-box');
+                inputBox.oninput = () => {
+                    calculate(row)
+                    updateTotalSum();
+                };
+                row.appendChild(inputBox);
+
+                if (i < 4) {
+                    const multiplySymbol = document.createElement('span');
+                    multiplySymbol.textContent = '×';
+                    row.appendChild(multiplySymbol);
+                }
+            }
+
+            const equalSymbol = document.createElement('span');
+            equalSymbol.textContent = '=';
+            row.appendChild(equalSymbol);
+
+            const resultBox = document.createElement('input');
+            resultBox.type = 'text';
+            resultBox.classList.add('result-box');
+            resultBox.readOnly = true;
+            row.appendChild(resultBox);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = '-';
+            deleteButton.onclick = () => {
+                deleteRow(row);
+                updateTotalSum();
+            };
+            row.appendChild(deleteButton);
+
+            const addButton = document.createElement('button');
+            addButton.textContent = '+';
+            addButton.onclick = addRow;
+            row.appendChild(addButton);
+
+            return row;
+        }
+
+        function calculate(row) {
+            const numBoxes = row.querySelectorAll('.num-box');
+            let product = 1;
+
+            numBoxes.forEach(box => {
+                const value = parseFloat(box.value);
+                if (!isNaN(value)) {
+                    product *= value;
+                }
+            });
+
+            row.querySelector('.result-box').value = product;
+        }
+
+        function addRow() {
+            const container = document.getElementById('container');
+            const newRow = createRow();
+            container.appendChild(newRow);
+        }
+
+        function deleteRow(row) {
+            row.remove();
+        }
+
+        function updateTotalSum() {
+            const resultBoxes = document.querySelectorAll('.result-box');
+            let totalSum = 0;
+
+            resultBoxes.forEach(box => {
+                const value = parseFloat(box.value);
+                if (!isNaN(value)) {
+                    totalSum += value;
+                }
+            });
+
+            document.getElementById('total-sum-box').value = totalSum;
+        }
+    </script>
+</body>
+
+</html>

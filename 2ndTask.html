@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Task</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: plum;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .accordion {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #cbcff7;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+        }
+
+        .accordion-header::before {
+            content: '\002B';
+            font-size: 20px;
+            width: 26px;
+            height: 25px;
+            text-align: center;
+            background-color: #556d85;
+            color: #fff;
+            border-radius: 50px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+            position: relative;
+            left: -2rem;
+        }
+
+        .accordion-header.active::before {
+            content: '\2212';
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 15px;
+            background-color: #fff;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.show {
+            max-height: 200px;
+            /* Adjust this value based on your content */
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Accordion</h1>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header active">Accordion Item #1</div>
+            <div class="accordion-content show">
+                This is the first item's accordion body. It is shown by default, until the collapse plugin adds
+                the appropriate classes that we use to style each element. These classes control the overall appearance,
+                as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that just about any HTML can go within the
+                though the transition does limit overflow.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">Accordion Item #2</div>
+            <div class="accordion-content">
+                This is the first item's accordion body. It is shown by default, until the collapse plugin adds
+                the appropriate classes that we use to style each element. These classes control the overall appearance,
+                as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that just about any HTML can go within the
+                though the transition does limit overflow.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">Accordion Item #3</div>
+            <div class="accordion-content">
+                This is the first item's accordion body. It is shown by default, until the collapse plugin adds
+                the appropriate classes that we use to style each element. These classes control the overall appearance,
+                as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that just about any HTML can go within the
+                though the transition does limit overflow.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const activeHeader = document.querySelector('.accordion-header.active');
+                if (activeHeader && activeHeader !== header) {
+                    activeHeader.classList.remove('active');
+                    activeHeader.nextElementSibling.classList.remove('show');
+                }
+
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                content.classList.toggle('show');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

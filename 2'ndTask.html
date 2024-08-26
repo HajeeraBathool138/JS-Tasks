@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Task</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            background-color: aquamarine;
+        }
+
+        .accordion {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .accordion-item {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            width: 50%;
+        }
+
+        .accordion-header {
+            background-color: #f7f7f7;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: #e7e7e7;
+        }
+
+        .accordion-body {
+            padding: 15px;
+            display: none;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Creating a Single-Active Accordion</h1>
+    <div class="accordion">
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Accordion Item #1
+            </button>
+            <div class="accordion-body">
+                Content for accordion item #1. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, quidem
+                obcaecati? Qui praesentium ducimus illo, reprehenderit vitae quos ad dolor expedita sequi corrupti rem
+                nemo dolore consequatur, iure officiis? Natus.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Accordion Item #2.
+            </button>
+            <div class="accordion-body">
+                Content for accordion item #2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea
+                voluptatum molestias voluptas, nesciunt quos minima nemo ducimus esse error fugit dolor maxime
+                laboriosam earum fuga libero? Odit, excepturi ipsam!
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Accordion Item #3
+            </button>
+            <div class="accordion-body">
+                Content for accordion item #3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia esse at,
+                quibusdam quidem exercitationem debitis. Eum sunt, facere, dolores error eligendi totam hic magnam ad
+                minus repudiandae atque, ipsam numquam!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const body = element.nextElementSibling;
+            const allBodies = document.querySelectorAll('.accordion-body');
+
+            // Close all accordion bodies
+            allBodies.forEach((b) => {
+                if (b !== body) {
+                    b.style.display = 'none';
+                }
+            });
+
+            // Toggle the clicked accordion body
+            if (body.style.display === "block") {
+                body.style.display = "none";
+            } else {
+                body.style.display = "block";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

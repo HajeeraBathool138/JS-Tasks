@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Filter</title>
+    <style>
+        .item {
+            display: none;
+        }
+
+        div#item-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .item {
+            width: 30%;
+            border: 1px solid grey;
+            border-radius: 20px;
+            padding: 11px;
+            text-align: center;
+            box-shadow: 10px 10px 20px #c7bfbf;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1330px) {
+            img {
+                width: -webkit-fill-available;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            .item {
+                width: 100%;
+            }
+        }
+
+        #search-box {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Item Filter</h1>
+        <label><input type="checkbox" class="category-filter" value="electronics"> Electronics</label>
+        <label><input type="checkbox" class="category-filter" value="clothing"> Clothing</label>
+        <label><input type="checkbox" class="category-filter" value="furniture"> Furniture</label>
+        <input type="text" id="search-box" placeholder="Search items...">
+    </div>
+    <div id="item-container">
+        <div class="item" data-category="electronics">
+            <img src="https://www.gsmimpex.in/images/Electronics/Digital%20Cameras%20wholesaler.jpg" alt="">
+            <h2>Sony Alpha a7 III Mirrorless Digital Camera with 28-70mm Lens</h2>
+            <p>Capture stunning photos and 4K videos with the Sony Alpha a7 III. Featuring a 24.2MP full-frame sensor,
+                693-point autofocus, and 5-axis stabilization, this camera delivers exceptional performance in any
+                setting. Perfect for both amateurs and professionals.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="clothing">
+            <img src="https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="">
+            <h2>Cozy Knit Sweater</h2>
+            <p>Stay warm and stylish with our soft, knit sweater, available in a variety of colors and sizes. Perfect
+                for layering during chilly days, this sweater combines comfort with classic design.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="clothing">
+            <img src="https://img.freepik.com/free-photo/fast-fashion-concept-with-full-clothing-store_23-2150871300.jpg?t=st=1721969646~exp=1721973246~hmac=c89977525d9d960206a720224df7d3dfb1743208d1001ece68261b0fb69138df&w=740"
+                alt="">
+            <h2>Comfortable Hoodie</h2>
+            <p>Enjoy casual comfort with our hoodie, featuring a soft lining, adjustable drawstrings, and a relaxed fit.
+                Ideal for everyday wear, this hoodie keeps you cozy while looking effortlessly cool.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/free-photo/view-round-modern-webcam-with-shadows-background_23-2150808006.jpg?t=st=1721968770~exp=1721972370~hmac=61946b35a5491080ffb7d591b3ae9daea6a8cc7bc3eaf8663fac4b7860817ce0&w=360"
+                alt="">
+            <h2>HD CCTV Security Camera with Night Vision</h2>
+            <p>Enhance your security with this high-definition CCTV camera, designed for both indoor and outdoor use.
+                Featuring 1080p resolution, night vision capabilities, and real-time motion detection, this camera
+                provides clear and reliable surveillance around the clock. Ideal for keeping your home or business
+                secure.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/premium-psd/fridge-without-distractions-perfect-focused-design-elements-kitchen-graphics_155707-5373.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Home Appliance Bundle: Fridge, TV, Oven, and Washing Machine</h2>
+            <p>Upgrade your home with this premium appliance bundle, including a state-of-the-art fridge, a 4K Ultra HD
+                TV, a high-efficiency oven, and a fully automatic washing machine. Experience top-notch performance,
+                energy efficiency, and modern design with each of these essential appliances. Perfect for a complete
+                home makeover.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/premium-photo/radio-that-says-find-different-things-it_1115474-44866.jpg"
+                alt="">
+            <h2>Vintage AM/FM Radio with Retro Design</h2>
+            <p>Enjoy the nostalgic charm of the past with this vintage AM/FM radio. Featuring a classic wood finish,
+                rotary dials, and an antenna, this radio brings back memories while providing high-quality sound.
+                Perfect for adding a retro touch to any room.</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/free-photo/headphones-with-minimalist-monochrome-background_23-2150763311.jpg?ga=GA1.1.2134331576.1714402460&semt=ais_user"
+                alt="">
+            <h2>Wireless Over-Ear Headphones with Noise Cancellation</h2>
+            <p>Experience exceptional sound quality with these wireless over-ear headphones. Equipped with active noise
+                cancellation, comfortable ear cushions, and a long-lasting battery, these headphones are perfect for
+                immersive listening on the go or at home.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039307.jpg?t=st=1721970185~exp=1721973785~hmac=305de5314b70e07a1c306d538a634d7ae36f45cf1343dfa3819953bdd2148da4&w=740"
+                alt="">
+            <p>At Yale, we pride ourselves in protecting the things that matter the most to you. Yale Cosmos Series
+                Safes will keep your most important belongings</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="electronics">
+            <img src="https://img.freepik.com/premium-photo/alfresco-cinema-experience-projector-white-background_893610-35462.jpg?ga=GA1.1.2134331576.1714402460&semt=ais_user"
+                alt="">
+            <h2>Egate i9 Pro-Max (6900 lm / 1 Speaker / Remote Controller)</h2>
+            <p>Full HD 1080p Native with 4k Support, 210-Inches (534 cm) Screen | AV, VGA, HDMI, SD Card, USB, AUX,
+                inbuilt Speaker, Bluetooth Home Projector (Black). The lamp and contrast ratio provides optimal
+                brightness and colour accuracy to its visuals. Its 16:9 ratio and high resolution display with 1920*1080
+                pixels and 4K offer an immersive viewing experience</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="clothing">
+            <img src="https://img.freepik.com/premium-photo/fashion-wear_1246590-211.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Traditional Girls' Dress</h2>
+            <p>Embrace timeless elegance with our traditional girls' dress, featuring beautiful embroidery and classic
+                designs. Ideal for cultural events and formal occasions, this dress combines grace and quality.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="clothing">
+            <img src="https://img.freepik.com/premium-photo/woman-gray-pants-blouse-bicolor-accessories-boots-white-background-brown-hair-studio-shot_481253-1215.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Modern Girls' Dress</h2>
+            <p>Elevate your little one's wardrobe with our modern girls' dress, designed with trendy patterns and
+                high-quality fabric. Perfect for both casual outings and special occasions, this dress ensures style and
+                comfort.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="clothing">
+            <img src="https://img.freepik.com/free-photo/shirt-mockup-concept-with-plain-clothing_23-2149448751.jpg?t=st=1721969498~exp=1721973098~hmac=1d07e1b7725a884af35c33ce8a38b9087fa4f4e82a6c5f84ae574945bf00a661&w=740"
+                alt="">
+            <h2>Classic Boys' T-Shirt</h2>
+            <p>Our boys' t-shirt offers a comfortable fit with vibrant prints and soft fabric. Perfect for everyday
+                wear, this t-shirt is both durable and stylish, making it a wardrobe essential for active boys.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+
+        <div class="item" data-category="furniture">
+            <img src="https://img.freepik.com/free-photo/gray-sofa-brown-living-room-with-copy-space_43614-954.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Spacious Large Sofa</h2>
+            <p>Transform your living area with our spacious large sofa, designed for ultimate comfort and style.
+                With
+                ample seating, plush cushions, and a durable frame, this sofa is perfect for relaxing with family
+                and
+                friends. Available in various colors to complement any decor.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+
+        <div class="item" data-category="furniture">
+            <img src="https://img.freepik.com/premium-photo/living-room_884653-25536.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Stylish Bin Sofa</h2>
+            <p>Introducing our stylish bin sofa, designed to blend functionality with modern aesthetics. This sofa
+                features a sleek design with built-in storage bins, perfect for keeping your living area tidy and
+                organized while providing comfortable seating. Ideal for small spaces or adding a practical touch to
+                any
+                room.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="furniture">
+            <img src="https://img.freepik.com/free-vector/wicker-hanging-chairs-swing-hanging-chain-with-cushions_1284-45541.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Modern Hanging Sofa</h2>
+            <p>Transform your space with our modern hanging sofa, designed to offer a unique and relaxing seating
+                experience. Featuring a stylish suspended design and plush cushions, this sofa adds a touch of
+                elegance
+                and comfort to any room. Perfect for creating a cozy nook or adding a contemporary flair to your
+                home.
+            </p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="furniture">
+            <img src="https://img.freepik.com/free-photo/picture-frame-with-abstract-art-by-pink-velvet-armchair_53876-128125.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Elegant Sofa Chair</h2>
+            <p>Upgrade your living space with our elegant sofa chair. Featuring a plush seat, stylish design, and
+                sturdy
+                frame, this chair offers both comfort and sophistication. Perfect for lounging or adding a touch of
+                class to any room.</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="item" data-category="furniture">
+            <img src="https://img.freepik.com/free-photo/home-entryway-with-modern-furnishing-design_23-2150791104.jpg?ga=GA1.1.2134331576.1714402460&semt=sph"
+                alt="">
+            <h2>Wooden Furniture Set: Table and Mirror</h2>
+            <p>Elevate your home decor with our stunning wooden furniture set, including a classic wooden table and
+                an
+                elegant wooden mirror. Crafted from high-quality wood, these pieces offer timeless design and
+                durable
+                construction, making them perfect additions to any room.</p>
+
+            <ul>
+                <li><strong>Classic Wooden Table:</strong> Enhance your dining or work space with this versatile
+                    table,
+                    featuring a stylish design and sturdy build. Ideal for both formal and casual settings.</li>
+                <li><strong>Elegant Wooden Mirror:</strong> Add a touch of sophistication with this beautifully
+                    crafted
+                    mirror, featuring a wooden frame that complements any room decor.</li>
+            </ul>
+
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.category-filter');
+            const items = document.querySelectorAll('#item-container .item');
+            const searchBox = document.getElementById('search-box');
+            let selectedCount = 0;
+
+            function filterItems() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                const searchTerm = searchBox.value.toLowerCase();
+
+                items.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+
+                    // Check if h2 element exists before accessing its textContent
+                    const h2Element = item.querySelector('h2');
+                    const itemTitle = h2Element ? h2Element.textContent.toLowerCase() : '';
+
+                    // Check if p element exists before accessing its textContent
+                    const pElement = item.querySelector('p');
+                    const itemDescription = pElement ? pElement.textContent.toLowerCase() : '';
+
+                    const isCategoryMatch = selectedCategories.length === 0 || selectedCategories.includes(itemCategory);
+                    const isSearchMatch = itemTitle.includes(searchTerm) || itemDescription.includes(searchTerm);
+
+                    item.style.display = (isCategoryMatch && isSearchMatch) ? 'block' : 'none';
+                });
+            }
+
+            function handleCheckboxChange(event) {
+                if (event.target.checked) {
+                    selectedCount++;
+                } else {
+                    selectedCount--;
+                }
+
+                // If more than 2 checkboxes are selected, uncheck the last one
+                if (selectedCount > 2) {
+                    alert("You can only select up to 2 categories.");
+                    event.target.checked = false;
+                    selectedCount--;
+                }
+
+                filterItems();
+            }
+
+            function handleSearchInput() {
+                filterItems();
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change',handleCheckboxChange);
+            });
+
+            searchBox.addEventListener('input', handleSearchInput);
+
+            // Initial filter based on checked checkboxes and search input
+            filterItems();
+        });
+
+
+    </script>
+</body>
+
+</html>
