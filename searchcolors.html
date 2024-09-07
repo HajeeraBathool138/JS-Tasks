@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 98%;
+            height: 97vh;
+            display: flex;
+            justify-content: center;
+            margin-top: 150px;
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhQLRmqDmBes-H-DtEBOaEr7EyC1Puo97Deg&s);
+        }
+
+        input#searchinput {
+            height: 35px;
+            width: 350px;
+            border: 2px solid aliceblue;
+            border-radius: 20px;
+            padding: 0px 18px;
+        }
+
+        ul#searchul {
+            list-style: none;
+            background-color: white;
+            position: relative;
+            top: -10px;
+            border-radius: 3px;
+            padding-top: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="Search" id="searchinput">
+        <ul id="searchul"></ul>
+    </div>
+    <script>
+        let colors = [
+            { colorName: "Red", hexCode: "#FF0000" },
+            { colorName: "Blue", hexCode: "#0000FF" },
+            { colorName: "Green", hexCode: "#008000" },
+            { colorName: "Yellow", hexCode: "#FFFF00" },
+            { colorName: "Orange", hexCode: "#FFA500" },
+            { colorName: "Purple", hexCode: "#800080" },
+            { colorName: "Pink", hexCode: "#FFC0CB" },
+            { colorName: "Brown", hexCode: "#964B00" },
+            { colorName: "Grey", hexCode: "#808080" },
+            { colorName: "Black", hexCode: "#000000" },
+            { colorName: "White", hexCode: "#FFFFFF" },
+            { colorName: "Turquoise", hexCode: "#00BFFF" },
+            { colorName: "Silver", hexCode: "#C0C0C0" },
+            { colorName: "Gold", hexCode: "#FFD700" },
+            { colorName: "Cyan", hexCode: "#00FFFF" },
+            { colorName: "Magenta", hexCode: "#FF00FF" },
+            { colorName: "Lime", hexCode: "#32CD32" },
+            { colorName: "Teal", hexCode: "#008080" },
+            { colorName: "Navy", hexCode: "#03055B" },
+            { colorName: "Maroon", hexCode: "#800000" },
+            { colorName: "Olive", hexCode: "#808000" },
+            { colorName: "Coral", hexCode: "#FFC67D" },
+            { colorName: "Salmon", hexCode: "#FA8072" },
+            { colorName: "Lavender", hexCode: "#C71585" },
+            { colorName: "Peach", hexCode: "#FFD7BE" },
+            { colorName: "Mint", hexCode: "#ACFFAC" },
+            { colorName: "Cream", hexCode: "#FFF599" },
+            { colorName: "Beige", hexCode: "#F5F5DC" },
+            { colorName: "Taupe", hexCode: "#A8D7F5" },
+            { colorName: "Sage", hexCode: "#8B9467" },
+            { colorName: "Sand", hexCode: "#F5DEB3" },
+            { colorName: "Seafoam", hexCode: "#B2E6CE" },
+            { colorName: "Misty", hexCode: "#C5E1A5" },
+            { colorName: "Fuchsia", hexCode: "#FFC0CB" },
+            { colorName: "Khaki", hexCode: "#C3B091" },
+            { colorName: "Crimson", hexCode: "#DC143C" },
+            { colorName: "Forest", hexCode: "#228B22" },
+            { colorName: "Lilac", hexCode: "#C9C3E6" },
+            { colorName: "Rust", hexCode: "#FFC080" },
+            { colorName: "Tan", hexCode: "#D2B48C" },
+            { colorName: "Cerulean", hexCode: "#007BA7" },
+            { colorName: "Violet", hexCode: "#8F0A1A" },
+            { colorName: "Indigo", hexCode: "#4B0082" },
+            { colorName: "Periwinkle", hexCode: "#CCCCFF" },
+            { colorName: "Sapphire", hexCode: "#0065BD" },
+            { colorName: "Emerald", hexCode: "#008000" },
+            { colorName: "Amber", hexCode: "#FFD200" },
+            { colorName: "Cobalt", hexCode: "#0047AB" },
+            { colorName: "Onyx", hexCode: "#353839" },
+            { colorName: "Bronze", hexCode: "#A87900" },
+            { colorName: "Copper", hexCode: "#FFC400" },
+            { colorName: "Jade", hexCode: "#00A86B" },
+            { colorName: "Sagebrush", hexCode: "#BCE3C5" },
+            { colorName: "Mocha", hexCode: "#964B00" },
+            { colorName: "Sienna", hexCode: "#A0522D" },
+            { colorName: "Terra Cotta", hexCode: "#DA70D6" },
+            { colorName: "Caramel", hexCode: "#F5DEB3" },
+            { colorName: "Mauve", hexCode: "#E0B0FF" },
+            { colorName: "Blush", hexCode: "#FFC0CB" },
+            { colorName: "Celadon", hexCode: "#ACE1AF" },
+            { colorName: "Sage Green", hexCode: "#8B9467" },
+            { colorName: "Dusk Blue", hexCode: "#6A5ACD" },
+            { colorName: "Rosewood", hexCode: "#650055" },
+            { colorName: "Lemon", hexCode: "#FFFF00" },
+            { colorName: "Chartreuse", hexCode: "#7FFD00" },
+            { colorName: "Aqua", hexCode: "#00FFFF" },
+            { colorName: "Coral Pink", hexCode: "#FFC67D" },
+            { colorName: "Mint Green", hexCode: "#ACFFAC" },
+            { colorName: "Powder Blue", hexCode: "#A1C9F2" },
+            { colorName: "Raspberry", hexCode: "#FF0033" },
+            { colorName: "Sandy Beige", hexCode: "#F5F5DC" },
+            { colorName: "Sea Green", hexCode: "#32CD32" },
+            { colorName: "Sky Blue", hexCode: "#87CEEB" },
+            { colorName: "Soft Pink", hexCode: "#FFC5C5" },
+            { colorName: "Steel Grey", hexCode: "#666666" },
+            { colorName: "Tangerine", hexCode: "#FFA07A" },
+            { colorName: "Teal Blue", hexCode: "#0097A7" },
+            { colorName: "Tomato Red", hexCode: "#FF6347" },
+            { colorName: "Violet Blue", hexCode: "#7A288A" },
+            { colorName: "Wheat", hexCode: "#F5DEB3" },
+            { colorName: "Yellow Green", hexCode: "#32CD32" }
+        ];
+
+        let input = document.getElementById("searchinput");
+        let ul = document.getElementById("searchul");
+
+        input.addEventListener('input', (event) => {
+            let user = event.target.value.toLowerCase()
+            let userfilter = colors.filter((color) => {
+                return color.colorName.toLowerCase().includes(user)
+            });
+            ul.innerHTML = " ";
+            if (userfilter.length === 0) {
+                let li = document.createElement('li');
+                li.textContent = "No Result Found";
+                li.style.listStyle = "none";
+                ul.appendChild(li);
+            } else {
+                userfilter.forEach((colors) => {
+                    let li = document.createElement("li")
+                    li.textContent = `${colors.colorName}-${colors.hexCode}`;
+                    li.style.listStyle = "=>";
+                    ul.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

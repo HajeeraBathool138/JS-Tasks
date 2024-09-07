@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 90vh;
+            align-items: center;
+            background: antiquewhite;
+        }
+
+        table {
+            border-collapse: collapse;
+            background: aquamarine;
+            font-size: 24px;
+            color: blue;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            color: navy;
+            font-size: 27px;
+            border: 3px solid deepskyblue;
+            background: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table"></table>
+    <script>
+        let string = 'The quick brown fox jumps over the lazy dog';
+        function strringfunc(arr) {
+            let store = arr.toLowerCase().split(' ');
+            let obj = {};
+            for (let char of store) {
+                if (obj[char]) {
+                    obj[char]++;
+                }
+                else {
+                    obj[char] = 1;
+                }
+            }
+            return obj;
+        }
+        let result = strringfunc(string);
+        console.log(result);
+
+        let table = document.getElementById('table');
+        table.innerHTML = `<tr><th>Count</th><th>Word</th></tr> ${Object.keys(result).map(wd => `<tr><td>${result[wd]}</td><td>${wd}</td></tr>`).join(' ')}`;
+
+
+        /* for (let word in result) {
+            let row = table.insertRow();
+            let colcell1 = row.insertCell(0);
+            colcell1.innerHTML = result[word];  // values of result
+            let colcell2 = row.insertCell(1);
+            colcell2.innerHTML = word;    // keys of result
+        }*/
+
+
+    </script>
+</body>
+
+</html>
