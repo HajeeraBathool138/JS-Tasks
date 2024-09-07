@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let string = prompt('enter the string for palindrome');
+        let stringss = string.toLowerCase().replaceAll(/\s+/g, '')
+        let Stringsss = stringss.replaceAll(/[!,?@.;&]/g, '');
+        let funcstri = Stringsss.split('').reverse().join('');
+        if (funcstri === Stringsss) {
+            console.log('The input string is a palindrome');
+        }
+        else {
+            console.log('the input string is not a palindrome');
+        }
+    </script>
+</body>
+
+</html>
+<!-- Steps:
+
+Create an HTML element to display the clock. You can use a <div> or <span> element with an ID, e.g., <div id="clock"></div>.
+Get the current time using the Date object in JavaScript.
+Format the time into hours, minutes, and seconds using the getHours(), getMinutes(), and getSeconds() methods.
+Update the HTML element with the formatted time using the innerHTML property.
+Use setInterval() to update the clock every second.
+Tips:
+
+Use the padStart() method to add leading zeros to the hours, minutes, and seconds if they are less than 10.
+You can use a template literal to format the time string, e.g., ${hours}:${minutes}:${seconds}.
+Make sure to update the clock every 1000 milliseconds (1 second) using setInterval().
+Go ahead and give it a try! -->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+
+<body>
+    <div id="clock">
+
+    </div>
+    <script>
+        let div = document.getElementById('clock');
+
+        function datedfunc() {
+            let time = new Date();
+            let seconds = time.getSeconds()
+            let minutes = time.getMinutes()
+            let hours = time.getHours()
+            let timestring = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`
+            div.innerHTML = timestring;
+        }
+
+        function padZero(value) {
+            return (value < 10 ? '0' : '') + value;
+        }
+
+        setInterval(datedfunc, 1000);
+        document.body.appendChild(div);
+    </script>
+</body>
+
+</html>
