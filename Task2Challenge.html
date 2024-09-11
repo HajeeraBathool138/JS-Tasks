@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover images using JS</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background: #c7c3a0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            margin: 0px;
+            text-align: center;
+        }
+
+        .imgs {
+            width: 400px;
+            height: 350px;
+            object-fit: cover;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+
+        .main {
+            width: 700px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h3>Task-2</h3>
+        <h4>Task: Image Gallery with Hover Effect using Mouse Events</h4>
+        <p>Objective: Create an image gallery where each image slightly enlarges when hovered over. This effect will be
+            implemented using mouseover and mouseout events, which will trigger the image enlargement and reset the size
+            when the mouse moves away.</p>
+    </div>
+    <div class="container">
+        <img src="https://images.unsplash.com/photo-1725714871742-bfb5a4817d71?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8"
+            class="imgs" alt="iamges">
+        <img src="https://images.unsplash.com/photo-1725668104598-376a886f52a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
+            class="imgs" alt="iamges">
+        <img src="https://images.unsplash.com/photo-1725663656850-7bc515816fcd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
+            class="imgs" alt="iamges">
+        <img src="https://plus.unsplash.com/premium_photo-1683917068346-35ba47e55d92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D"
+            class="imgs" alt="iamges">
+        <img src="https://images.unsplash.com/photo-1725964558900-cc775856d97c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"
+            class="imgs" alt="iamges">
+
+        <img src="https://plus.unsplash.com/premium_photo-1671822689857-9141c5de8813?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1Nnx8fGVufDB8fHx8fA%3D%3D"
+            alt="iamges" class="imgs">
+    </div>
+
+    <script>
+        let imgs = document.querySelectorAll(".imgs");
+        imgs.forEach((images) => {
+            images.addEventListener('mouseover', () => {
+                images.style.transform = 'scale(1.1)';
+                images.style.opacity = '0.8';
+            })
+            images.addEventListener('mouseout', () => {
+                images.style.transform = 'none';
+            })
+        })
+
+        /*we can acheive this challenge on JS in 3 ways:
+        1.with addEventListener
+        2.if condition
+        3.onmouseover  */
+    </script>
+</body>
+
+</html>
